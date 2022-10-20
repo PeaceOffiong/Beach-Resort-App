@@ -1,1 +1,70 @@
+.Roommie .int{
+     width: 100%;
+     display: flex;
+     align-self: center;
+     justify-content: center;
+}
 
+.categories{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.categories li{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input, select{
+    width: 130px;
+}
+
+#special{
+    width: 20px;
+}
+
+.roomsZone{
+    overflow: hidden;
+     width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-row-gap: 1rem;
+    grid-column-gap: 20px; 
+    margin: 0;
+}
+
+.hi{
+    height: 280px;
+}
+
+.featured.all{
+    width: 100%;
+}
+
+.container{
+    height: inherit;
+    width: auto;
+    background-color: aliceblue;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0;
+    position: relative;
+    margin-top: 20px;
+}
+.container:hover .featured {
+    visibility: visible;
+}
+
+.container:hover .price {
+    display: none;
+}

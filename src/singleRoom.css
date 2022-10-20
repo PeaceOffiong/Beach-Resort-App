@@ -1,0 +1,116 @@
+.header{
+    height: 350px;
+    overflow: hidden; 
+    position: relative;   
+}
+
+.header img{
+    width: 100%;
+    height: inherit;
+}
+
+.innerDescription{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(135, 93, 63, 0.6);
+    height: 200px;
+    width: 60%;
+    
+}
+
+.innerDescription .title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-size: 45px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.bttn{
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    width: 120px;
+    background-color: rgb(135, 93, 63);
+    border: 2px solid rgb(0, 149, 208);
+    color: white;
+    cursor: pointer
+}
+
+.imgcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.imgcontainer li, .imgcontainer li img{
+    flex: 1 20% 30%;
+    height: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+
+h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin: 10px;
+}
+
+aside .info, aside .details, aside .extras{
+    margin: 0px 50px;
+    height: 250px;
+}
+
+.info li, .extras li{
+    list-style: circle
+}
+@media (min-width: 750px) {
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+        aside .info,
+        aside .details,
+        aside .extras{
+            margin: 30px 50px;
+        }
+}
+
+.Error {
+    height: 82.9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(./images/defaultBcg.jpeg);
+    height: 84.9vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.Error h3 {
+    font-size: 50px;
+    color: white;
+}
+
+.Error .innerDescription{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
