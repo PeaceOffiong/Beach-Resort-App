@@ -25,7 +25,7 @@ const Rooms = () => {
     return (
       <section className="Roommie">
         <div className="header">
-          <img src={Image} alt="an image of a roon" />
+          <img src={Image} alt="a room" />
           <div className="innerDescription">
             <div className="title">
               <h3>Our Rooms</h3>
@@ -51,7 +51,7 @@ const Rooms = () => {
   return (
     <section className="Roommie">
       <div className="header">
-        <img src={Image} alt="an image of a roon" />
+        <img src={Image} alt="a room" />
         <div className="innerDescription">
           <div className="title">
             <h3>Our Rooms</h3>

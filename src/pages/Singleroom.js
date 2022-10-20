@@ -9,7 +9,7 @@ const Singleroom = () => {
   const { Rooms } = useGlobalContext();
   const room = Rooms.find((room) => room.fields.slug === id);
 
-  if (room == undefined) {
+  if (room === undefined) {
     return (
       <section className="Error">
         <div className="innerDescription">
@@ -54,7 +54,7 @@ const Singleroom = () => {
         {otherImages.map((eachImage, index) => {
           return (
             <li key={index}>
-              <img src={eachImage.fields.file.url} />;
+              <img src={eachImage.fields.file.url} alt="a room"/>;
             </li>
           );
         })}

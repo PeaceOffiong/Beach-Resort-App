@@ -42,7 +42,7 @@ const AppProvider = ({ children }) => {
 
     dispatch({ type: "LOAD_FEATURE_DATA", payload: result });
     dispatch({ type: "SET_MIN_MAX_PRICE", payload: priceRange });
-  }, []);
+  }, [state.Rooms]);
 
   const handleChange = (e) => {
     const target = e.target;
@@ -54,38 +54,38 @@ const AppProvider = ({ children }) => {
     filterRooms();
   };
 
+   const filterRooms = () => {
+     let tempRooms = [...Data];
+     let capacity = parseInt(state.capacity);
+     let price = parseInt(state.Price);
+     if (capacity !== 1) {
+       tempRooms = tempRooms.filter((room) => room.fields.capacity >= capacity);
+       dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+     }
+     if (state.type !== "all") {
+       tempRooms = tempRooms.filter((room) => room.fields.type === state.type);
+       dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+     }
+     if (price !== 0) {
+       tempRooms = tempRooms.filter((room) => room.fields.price <= price);
+       dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+     }
+     if (state.breakfast) {
+       tempRooms = tempRooms.filter(
+         (room) => room.fields.breakfast === state.breakfast
+       );
+       dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+     }
+     if (state.pets) {
+       tempRooms = tempRooms.filter((room) => room.fields.pets === state.pets);
+       dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+     }
+     dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
+   };
+
   useEffect(() => {
     filterRooms();
-  }, [state.capacity, state.type, state.Price, state.breakfast, state.pets]);
-
-  const filterRooms = () => {
-    let tempRooms = [...Data];
-    let capacity = parseInt(state.capacity);
-    let price = parseInt(state.Price);
-    if (capacity !== 1) {
-      tempRooms = tempRooms.filter((room) => room.fields.capacity >= capacity);
-      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-    }
-    if (state.type !== "all") {
-      tempRooms = tempRooms.filter((room) => room.fields.type === state.type);
-      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-    }
-    if (price !== 0) {
-      tempRooms = tempRooms.filter((room) => room.fields.price <= price);
-      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-    }
-    if (state.breakfast) {
-      tempRooms = tempRooms.filter(
-        (room) => room.fields.breakfast === state.breakfast
-      );
-      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-    }
-    if (state.pets) {
-      tempRooms = tempRooms.filter((room) => room.fields.pets === state.pets);
-      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-    }
-    dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-  };
+  }, [state.capacity, state.type, state.Price, state.breakfast, state.pets, filterRooms]);
 
   return (
     <AppContext.Provider
