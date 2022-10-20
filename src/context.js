@@ -85,7 +85,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     filterRooms();
-  }, [state.capacity, state.type, state.Price, state.breakfast, state.pets, filterRooms]);
+  }, [filterRooms]);
 
   return (
     <AppContext.Provider
