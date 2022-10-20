@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, useCallback } from "react";
 import reducer from "./reducer";
 import Data from "./Data";
 
@@ -54,7 +54,8 @@ const AppProvider = ({ children }) => {
     filterRooms();
   };
 
-   const filterRooms = () => {
+  const filterRooms = useCallback(() => {
+    /* function body */
      let tempRooms = [...Data];
      let capacity = parseInt(state.capacity);
      let price = parseInt(state.Price);
@@ -81,7 +82,7 @@ const AppProvider = ({ children }) => {
        dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
      }
      dispatch({ type: "LOAD_SORTED_DATA", payload: tempRooms });
-   };
+  }, [state.type, state.pets, state.breakfast, state.Price, state.capacity]);
 
   useEffect(() => {
     filterRooms();
